@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link href="https://fonts.googleapis.com/css?family=Tangerine:wght@400;500&display=swap" rel="stylesheet">
+	<style>
+		body {
+			background-color: beige;
+			font-family: 'Gotham Rounded', sans-serif;
+			font-weight: normal;
+		}
+		.calculator {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		.button {
+			margin: 5px;
+			padding: 10px 20px;
+			font-size: 24px;
+			border: none;
+			border-radius: 5px;
+			background-color: white;
+			cursor: pointer;
+		}
+		.display {
+			width: 230px;
+			height: 50px;
+			font-size: 24px;
+			text-align: right;
+			padding-right: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: white;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="calculator">
+		<input type="text" class="display" id="display" readonly>
+		<button class="button" onclick="buttonPressed('1')">1</button>
+		<button class="button" onclick="buttonPressed('2')">2</button>
+		<button class="button" onclick="buttonPressed('3')">3</button>
+		<button class="button" onclick="buttonPressed('+')">+</button>
+		<button class="button" onclick="buttonPressed('4')">4</button>
+		<button class="button" onclick="buttonPressed('5')">5</button>
+		<button class="button" onclick="buttonPressed('6')">6</button>
+		<button class="button" onclick="buttonPressed('-')">-</button>
+		<button class="button" onclick="buttonPressed('7')">7</button>
+		<button class="button" onclick="buttonPressed('8')">8</button>
+		<button class="button" onclick="buttonPressed('9')">9</button>
+		<button class="button" onclick="buttonPressed('')"></button>
+		<button class="button" onclick="buttonPressed('0')">0</button>
+		<button class="button" onclick="buttonPressed('/')">/</button>
+		<button class="button" onclick="buttonPressed('C')">C</button>
+		<button class="button" onclick="calculate()">=</button>
+	</div>
+	<script>
+		function buttonPressed(value) {
+			document.getElementById('display').value += value;
+		}
+
+		function calculate() {
+			try {
+				document.getElementById('display').value = eval(document.getElementById('display').value);
+			} catch (e) {
+				alert('Invalid calculation');
+			}
+		}
+	</script>
+</body>
+</html>
